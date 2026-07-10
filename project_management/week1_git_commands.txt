@@ -1,0 +1,19 @@
+git add README.md requirements.txt .gitignore src/ notebooks/ app/ models/
+git commit -m "Setup: initialise repository structure"
+
+git add docs/dataset_source.md docs/week1_project_scope.md docs/member_updates/member1_data_eda_lead.md
+git commit -m "Docs: add dataset source and folder structure"
+
+git add docs/system_architecture.md docs/xception_architecture.md docs/architecture/ docs/member_updates/member2_architecture_xception_lead.md
+git commit -m "Docs: add system and Xception architecture plan"
+
+git add docs/model_comparison_plan.md docs/member_updates/member3_model_comparison_lead.md
+git commit -m "Docs: add model comparison strategy"
+
+git add docs/evaluation_metrics.md docs/responsible_ai_notes.md docs/member_updates/member4_evaluation_xai_lead.md project_management/risk_register.md
+git commit -m "Docs: define evaluation metrics and responsible AI risks"
+
+git add project_management/ reports/weekly_updates/week1_summary.md docs/member_updates/member5_github_deployment_lead.md
+git commit -m "Setup: initialise repository, project board and Week 1 notes"
+
+git push origin main

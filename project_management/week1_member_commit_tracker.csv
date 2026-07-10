@@ -1,0 +1,6 @@
+Member,Role,Commit Message,Status
+Member 1,Data & EDA Lead,Docs: add dataset source and folder structure,Done
+Member 2,Architecture/Xception Lead,Docs: add system and Xception architecture plan,Done
+Member 3,Model Comparison Lead,Docs: add model comparison strategy,Done
+Member 4,Evaluation/XAI Lead,Docs: define evaluation metrics and responsible AI risks,Done
+Member 5,GitHub/Deployment Lead,"Setup: initialise repository, project board and Week 1 notes",Done

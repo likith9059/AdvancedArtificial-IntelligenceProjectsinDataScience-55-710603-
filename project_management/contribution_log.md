@@ -1,6 +1,6 @@
 # Week 1 Contribution Log
 
-| Member | Role | Contribution | Commit |
+| Member | Role | Contribution | Commits |
 |---|---|---|---|
 | Member 1 | Data & EDA Lead | Dataset source and class mapping | Docs: add dataset source and folder structure |
 | Member 2 | Architecture/Xception Lead | System and Xception architecture | Docs: add system and Xception architecture plan |

@@ -1,0 +1,6 @@
+Member,Role,Branch,Commit Message,Main Evidence
+Sandeep Bommagoni,Data & EDA Lead,sandeep-week2-eda,EDA: add dataset inventory and class distribution,class distribution CSV and notebook sections 2-4
+Likith Kumar Devulapalli,Architecture / Xception Lead,likith-week2-image-analysis,EDA: add image dimension and sample image analysis,dimension plot and sample image figure
+Raghava Krishna Battu,Model Comparison Lead,raghava-week2-quality-checks,EDA: add corrupt and duplicate image checks,corrupted and duplicate image CSV files
+Navatej Patel Cheerneni,Evaluation & XAI Lead,navatej-week2-eda-interpretation,EDA: add pixel intensity and average image analysis,average image and pixel intensity plots
+Tharun Chinnachinnaiahgari,GitHub / Deployment Lead,tharun-week2-summary,Docs: add Week 2 EDA summary and figures,week2 summary and contribution update

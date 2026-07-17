@@ -1,0 +1,31 @@
+# Week 2 Git Commands
+
+# Sandeep Bommagoni
+git checkout -b sandeep-week2-eda
+git add notebooks/Week_02_EDA_and_Data_Quality.ipynb src/data_preprocessing.py reports/model_results/week2_class_distribution.csv
+git commit -m "EDA: add dataset inventory and class distribution"
+git push origin sandeep-week2-eda
+
+# Likith Kumar Devulapalli
+git checkout -b likith-week2-image-analysis
+git add notebooks/Week_02_EDA_and_Data_Quality.ipynb reports/figures/week2_image_dimension_distribution.png reports/figures/week2_random_train_samples.png
+git commit -m "EDA: add image dimension and sample image analysis"
+git push origin likith-week2-image-analysis
+
+# Raghava Krishna Battu
+git checkout -b raghava-week2-quality-checks
+git add notebooks/Week_02_EDA_and_Data_Quality.ipynb reports/model_results/week2_corrupted_images.csv reports/model_results/week2_duplicate_images.csv
+git commit -m "EDA: add corrupt and duplicate image checks"
+git push origin raghava-week2-quality-checks
+
+# Navatej Patel Cheerneni
+git checkout -b navatej-week2-eda-interpretation
+git add notebooks/Week_02_EDA_and_Data_Quality.ipynb reports/figures/week2_average_images_by_class.png reports/figures/week2_pixel_intensity_distribution.png
+git commit -m "EDA: add pixel intensity and average image analysis"
+git push origin navatej-week2-eda-interpretation
+
+# Tharun Chinnachinnaiahgari
+git checkout -b tharun-week2-summary
+git add reports/weekly_updates/week2_summary.md docs/member_updates/week2_member_contributions.md project_management/meeting_notes/week2_meeting_notes.md project_management/week2_git_commands.txt
+git commit -m "Docs: add Week 2 EDA summary and figures"
+git push origin tharun-week2-summary

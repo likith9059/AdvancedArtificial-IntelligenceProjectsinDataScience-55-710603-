@@ -1,0 +1,10 @@
+{
+    "threshold": 0.5,
+    "accuracy": 0.6,
+    "defect_precision": 0.6,
+    "defect_recall": 1.0,
+    "f1_defect": 0.7499999999999999,
+    "roc_auc": 0.7324128862590401,
+    "pr_auc": 0.833435470644744,
+    "training_minutes": 0.5677060643831889
+}

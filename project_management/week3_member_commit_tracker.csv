@@ -1,0 +1,6 @@
+Week,Issue,Member,Role,Task,Files,Commit Message,Status
+Week 3,#1,Sandeep Bommagoni,Data & EDA Lead,Clean manifest and split,Notebook + split_counts.csv,Data: create Week 3 clean manifest and dataset splits,Done
+Week 3,#2,Likith Kumar Devulapalli,Architecture / Xception Lead,Preprocessing and augmentation,src/preprocessing_week3.py + augmentation figure,Data: add TensorFlow preprocessing and augmentation pipeline,Done
+Week 3,#3,Raghava Krishna Battu,Model Comparison Lead,Custom CNN baseline,src/train_baseline_cnn.py + notebook section,Model: add Custom CNN baseline training,Done
+Week 3,#4,Navatej Patel Cheerneni,Evaluation & XAI Lead,Baseline evaluation,metrics + confusion matrix + curves,Eval: add baseline CNN validation metrics and plots,Done
+Week 3,#5,Tharun Chinnachinnaiahgari,GitHub / Deployment Lead,Summary and evidence,weekly summary + meeting notes + tracker,Docs: add Week 3 summary and GitHub evidence,Done

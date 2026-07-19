@@ -1,0 +1,31 @@
+# Week 3 Git Commands
+
+# Sandeep Bommagoni
+git checkout -b sandeep-week3-splits
+git add notebooks/Week_03_Preprocessing_and_Baseline_CNN.ipynb reports/model_results/week3_split_counts.csv
+git commit -m "Data: create Week 3 clean manifest and dataset splits"
+git push origin sandeep-week3-splits
+
+# Likith Kumar Devulapalli
+git checkout -b likith-week3-preprocessing
+git add src/preprocessing_week3.py reports/figures/week3_augmentation_preview.png
+git commit -m "Data: add TensorFlow preprocessing and augmentation pipeline"
+git push origin likith-week3-preprocessing
+
+# Raghava Krishna Battu
+git checkout -b raghava-week3-baseline-cnn
+git add src/train_baseline_cnn.py notebooks/Week_03_Preprocessing_and_Baseline_CNN.ipynb
+git commit -m "Model: add Custom CNN baseline training"
+git push origin raghava-week3-baseline-cnn
+
+# Navatej Patel Cheerneni
+git checkout -b navatej-week3-baseline-evaluation
+git add reports/model_results/week3_baseline_validation_metrics.json reports/model_results/week3_baseline_classification_report.csv reports/figures/week3_baseline_confusion_matrix.png
+git commit -m "Eval: add baseline CNN validation metrics and plots"
+git push origin navatej-week3-baseline-evaluation
+
+# Tharun Chinnachinnaiahgari
+git checkout -b tharun-week3-summary
+git add reports/weekly_updates/week3_summary.md docs/member_updates/week3_member_contributions.md project_management/meeting_notes/week3_meeting_notes.md project_management/week3_git_commands.txt project_management/week3_member_commit_tracker.csv
+git commit -m "Docs: add Week 3 summary and GitHub evidence"
+git push origin tharun-week3-summary

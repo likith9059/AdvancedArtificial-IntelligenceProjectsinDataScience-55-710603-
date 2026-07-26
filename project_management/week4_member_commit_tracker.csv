@@ -1,0 +1,6 @@
+Week,Issue,Member,Role,Task,Files,Commit Message,Status
+Week 4,#1,Sandeep Bommagoni,Data & EDA Lead,Verify split and class weights,split_counts.csv + class_weights.json,Data: verify Week 4 split and class weights,Done
+Week 4,#2,Likith Kumar Devulapalli,Architecture / Xception Lead,Build Xception architecture,src/train_xception_week4.py + notebook section,Model: add Xception transfer learning architecture,Done
+Week 4,#3,Raghava Krishna Battu,Model Comparison Lead,Callbacks and training setup,training log + comparison CSV,Model: add Xception callbacks and training setup,Done
+Week 4,#4,Navatej Patel Cheerneni,Evaluation & XAI Lead,Xception validation evaluation,metrics + classification report + confusion matrix,Eval: add Xception validation metrics and confusion matrix,Done
+Week 4,#5,Tharun Chinnachinnaiahgari,GitHub / Deployment Lead,Summary and evidence,weekly summary + meeting notes + tracker,Docs: add Week 4 summary and GitHub evidence,Done

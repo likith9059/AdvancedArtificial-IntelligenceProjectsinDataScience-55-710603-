@@ -1,0 +1,2 @@
+model,threshold,accuracy,defect_precision,defect_recall,f1_defect,roc_auc,pr_auc,training_minutes
+Xception transfer learning,0.5,1.0,1.0,1.0,1.0,1.0,1.0,1.5815674861272175

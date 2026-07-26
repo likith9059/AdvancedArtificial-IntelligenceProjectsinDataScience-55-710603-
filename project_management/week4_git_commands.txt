@@ -1,0 +1,31 @@
+# Week 4 Git Commands
+
+# Sandeep Bommagoni
+git checkout -b sandeep-week4-data-check
+git add notebooks/Week_04_Xception_Transfer_Learning.ipynb reports/model_results/week4_split_counts.csv reports/model_results/week4_class_weights.json
+git commit -m "Data: verify Week 4 split and class weights"
+git push origin sandeep-week4-data-check
+
+# Likith Kumar Devulapalli
+git checkout -b likith-week4-xception-architecture
+git add src/train_xception_week4.py notebooks/Week_04_Xception_Transfer_Learning.ipynb
+git commit -m "Model: add Xception transfer learning architecture"
+git push origin likith-week4-xception-architecture
+
+# Raghava Krishna Battu
+git checkout -b raghava-week4-xception-training
+git add reports/model_results/week4_xception_training_log.csv reports/model_results/week4_xception_vs_baseline_comparison.csv
+git commit -m "Model: add Xception callbacks and training setup"
+git push origin raghava-week4-xception-training
+
+# Navatej Patel Cheerneni
+git checkout -b navatej-week4-xception-evaluation
+git add src/evaluate_week4.py reports/model_results/week4_xception_validation_metrics.json reports/model_results/week4_xception_classification_report.csv reports/model_results/week4_xception_confusion_matrix.csv reports/figures/week4_xception_confusion_matrix.png
+git commit -m "Eval: add Xception validation metrics and confusion matrix"
+git push origin navatej-week4-xception-evaluation
+
+# Tharun Chinnachinnaiahgari
+git checkout -b tharun-week4-summary
+git add reports/weekly_updates/week4_summary.md docs/member_updates/week4_member_contributions.md project_management/meeting_notes/week4_meeting_notes.md project_management/week4_git_commands.txt project_management/week4_member_commit_tracker.csv
+git commit -m "Docs: add Week 4 summary and GitHub evidence"
+git push origin tharun-week4-summary

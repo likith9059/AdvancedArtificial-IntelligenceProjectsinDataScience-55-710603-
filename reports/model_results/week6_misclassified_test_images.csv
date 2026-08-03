@@ -1,0 +1,3 @@
+path,filename,label_name,label,readable,true_label,predicted_label,defect_probability,correct,true_label_name,predicted_label_name
+/kaggle/input/real-life-industrial-dataset-of-casting-product/casting_512x512/casting_512x512/def_front/cast_def_0_7724.jpeg,cast_def_0_7724.jpeg,def_front,1,True,1,0,0.062396772,False,def_front,ok_front
+/kaggle/input/real-life-industrial-dataset-of-casting-product/casting_512x512/casting_512x512/def_front/cast_def_0_3457.jpeg,cast_def_0_3457.jpeg,def_front,1,True,1,0,0.24466449,False,def_front,ok_front

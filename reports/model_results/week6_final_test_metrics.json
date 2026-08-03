@@ -1,0 +1,12 @@
+{
+    "selected_model": "Xception",
+    "threshold": 0.24999999999999992,
+    "accuracy": 0.9897959183673469,
+    "balanced_accuracy": 0.9915254237288136,
+    "defect_precision": 1.0,
+    "defect_recall": 0.9830508474576272,
+    "f1_defect": 0.9914529914529915,
+    "f2_defect": 0.9863945578231292,
+    "roc_auc": 0.9992394611038679,
+    "pr_auc": 0.9995254237288136
+}

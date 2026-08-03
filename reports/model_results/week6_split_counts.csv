@@ -1,0 +1,7 @@
+split,label_name,images
+test,def_front,118
+test,ok_front,78
+train,def_front,546
+train,ok_front,363
+validation,def_front,117
+validation,ok_front,78

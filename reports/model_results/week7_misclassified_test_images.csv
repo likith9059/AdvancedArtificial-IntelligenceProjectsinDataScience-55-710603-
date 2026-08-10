@@ -1,0 +1,6 @@
+path,filename,label_name,label,readable,height,width,true_label,predicted_label,defect_probability,true_label_name,predicted_label_name,correct,confidence
+/kaggle/input/real-life-industrial-dataset-of-casting-product/casting_512x512/casting_512x512/def_front/cast_def_0_7724.jpeg,cast_def_0_7724.jpeg,def_front,1,True,512,512,1,0,0.10900497,def_front,ok_front,False,0.890995
+/kaggle/input/real-life-industrial-dataset-of-casting-product/casting_512x512/casting_512x512/def_front/cast_def_0_8142.jpeg,cast_def_0_8142.jpeg,def_front,1,True,512,512,1,0,0.13567628,def_front,ok_front,False,0.86432374
+/kaggle/input/real-life-industrial-dataset-of-casting-product/casting_512x512/casting_512x512/ok_front/cast_ok_0_1265.jpeg,cast_ok_0_1265.jpeg,ok_front,0,True,512,512,0,1,0.2105606,ok_front,def_front,False,0.7894394
+/kaggle/input/real-life-industrial-dataset-of-casting-product/casting_512x512/casting_512x512/ok_front/cast_ok_0_3336.jpeg,cast_ok_0_3336.jpeg,ok_front,0,True,512,512,0,1,0.24753545,ok_front,def_front,False,0.75246453
+/kaggle/input/real-life-industrial-dataset-of-casting-product/casting_512x512/casting_512x512/ok_front/cast_ok_0_1825.jpeg,cast_ok_0_1825.jpeg,ok_front,0,True,512,512,0,1,0.4363026,ok_front,def_front,False,0.5636974

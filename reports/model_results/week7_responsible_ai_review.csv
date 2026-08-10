@@ -1,0 +1,6 @@
+area,risk_or_issue,project_response
+Transparency,CNN predictions can be difficult to interpret.,Grad-CAM heatmaps were generated to inspect where the model focuses.
+Reliability,High accuracy can hide failure cases.,Misclassified and low-confidence cases were reviewed separately.
+Human oversight,False negatives could allow defective products to pass inspection.,Low-confidence predictions should be sent to human review.
+Data limitation,The dataset may not represent all real factory conditions.,The model is presented as an academic prototype requiring external validation.
+Deployment caution,A model trained on one dataset may not generalise to all production lines.,Future work should test the model on new factory images before deployment.

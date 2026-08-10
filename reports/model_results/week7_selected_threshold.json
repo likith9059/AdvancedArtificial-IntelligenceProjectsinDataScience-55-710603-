@@ -1,0 +1,4 @@
+{
+    "selected_threshold": 0.18999999999999995,
+    "selection_rule": "Highest validation F2, then defect recall, then balanced accuracy"
+}

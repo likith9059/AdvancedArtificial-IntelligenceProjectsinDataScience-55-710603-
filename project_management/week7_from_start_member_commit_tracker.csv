@@ -1,0 +1,6 @@
+Week,Issue,Member,Role,Task,Files,Commit Message,Status
+Week 7,#1,Sandeep Bommagoni,Data & EDA Lead,Dataset split from scratch,manifest + split + weights,Data: create Week 7 dataset split from scratch,Done
+Week 7,#2,Likith Kumar Devulapalli,Architecture / Xception Lead,Fresh Xception and Grad-CAM utilities,notebook + train/gradcam scripts,Model: add fresh Xception and Grad-CAM utilities,Done
+Week 7,#3,Raghava Krishna Battu,Model Comparison Lead,Training and Grad-CAM outputs,training logs + Grad-CAM figures,Model: train and fine tune Week 7 Xception,Done
+Week 7,#4,Navatej Patel Cheerneni,Evaluation & XAI Lead,Final evaluation and ethics,metrics + threshold + error + responsible AI,Eval: add Week 7 final metrics and responsible AI review,Done
+Week 7,#5,Tharun Chinnachinnaiahgari,GitHub / Deployment Lead,Documentation,summary + notes + tracker,Docs: add Week 7 from-start summary and evidence,Done

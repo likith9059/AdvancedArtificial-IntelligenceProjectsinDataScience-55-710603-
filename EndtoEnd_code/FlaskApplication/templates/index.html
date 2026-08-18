@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Deep-learning casting defect inspection for pump impellers.">
+    <title>Casting Defect Inspector</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a class="brand" href="{{ url_for('index') }}" aria-label="Casting Defect Inspector home">
+                <span class="brand-mark">CD</span>
+                <span>
+                    <strong>Casting Defect Inspector</strong>
+                    <small>AI-assisted quality inspection</small>
+                </span>
+            </a>
+            <div class="status-pill {{ 'ready' if model_status.model_file_exists else 'warning' }}">
+                <span class="status-dot"></span>
+                {{ 'Model available' if model_status.model_file_exists else 'Model file required' }}
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <div class="eyebrow">COMPUTER VISION FOR MANUFACTURING</div>
+                    <h1>Inspect impeller castings in seconds.</h1>
+                    <p class="hero-copy">
+                        Upload a controlled top-view image. The model estimates whether the
+                        casting is <strong>defective</strong> or <strong>OK</strong> and reports
+                        both class probabilities using the validation-selected threshold.
+                    </p>
+                    <div class="hero-badges">
+                        <span>Binary classification</span>
+                        <span>Secure in-memory upload</span>
+                        <span>REST API included</span>
+                    </div>
+                </div>
+                <div class="hero-panel">
+                    <div class="metric-mini">
+                        <span>Model</span>
+                        <strong>{{ metadata.get('model_name', 'Casting classifier') }}</strong>
+                    </div>
+                    <div class="metric-mini">
+                        <span>Input</span>
+                        <strong>{{ metadata.get('image_size', [224, 224])[0] }} × {{ metadata.get('image_size', [224, 224])[1] }}</strong>
+                    </div>
+                    <div class="metric-mini">
+                        <span>Defect threshold</span>
+                        <strong>{{ '%.3f'|format(metadata.get('decision_threshold', 0.5)|float) }}</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="workspace-section">
+            <div class="container workspace-grid">
+                <article class="card upload-card">
+                    <div class="card-heading">
+                        <div>
+                            <span class="step-number">1</span>
+                            <h2>Upload casting image</h2>
+                        </div>
+                        <span class="file-note">Maximum {{ max_upload_mb }} MB</span>
+                    </div>
+
+                    {% if error %}
+                    <div class="alert alert-error" role="alert">
+                        <strong>Inspection could not be completed</strong>
+                        <span>{{ error }}</span>
+                    </div>
+                    {% endif %}
+
+                    {% if not model_status.model_file_exists %}
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Deployment setup required</strong>
+                        <span>
+                            Add <code>casting_defect_model.keras</code> to the project root,
+                            then restart the Flask application.
+                        </span>
+                    </div>
+                    {% endif %}
+
+                    <form id="prediction-form" action="{{ url_for('predict_page') }}" method="post" enctype="multipart/form-data">
+                        <label class="drop-zone" id="drop-zone" for="image-input">
+                            <input
+                                id="image-input"
+                                name="image"
+                                type="file"
+                                accept=".jpg,.jpeg,.png,.bmp,.webp,image/jpeg,image/png,image/bmp,image/webp"
+                                required
+                            >
+                            <div class="drop-icon" aria-hidden="true">↑</div>
+                            <strong>Choose an image or drag it here</strong>
+                            <span>JPG, JPEG, PNG, BMP, or WebP</span>
+                            <span class="selected-file" id="selected-file">No file selected</span>
+                        </label>
+                        <button class="primary-button" id="inspect-button" type="submit" {% if not model_status.model_file_exists %}disabled{% endif %}>
+                            <span class="button-label">Inspect casting</span>
+                            <span class="button-spinner" aria-hidden="true"></span>
+                        </button>
+                    </form>
+
+                    <div class="scope-note">
+                        <strong>Expected image:</strong> top view of a submersible-pump impeller,
+                        captured under lighting and positioning similar to the training data.
+                    </div>
+                </article>
+
+                <article class="card result-card">
+                    <div class="card-heading">
+                        <div>
+                            <span class="step-number">2</span>
+                            <h2>Inspection result</h2>
+                        </div>
+                    </div>
+
+                    {% if result %}
+                    <div class="decision-banner {{ 'defective' if result.decision == 'DEFECTIVE' else 'ok' }}">
+                        <span class="decision-kicker">Model decision</span>
+                        <strong>{{ result.decision }}</strong>
+                        <span>{{ 'Refer this casting for manual quality review.' if result.decision == 'DEFECTIVE' else 'No strong defect evidence was detected.' }}</span>
+                    </div>
+
+                    {% if result.borderline %}
+                    <div class="alert alert-warning compact">
+                        <strong>Borderline prediction</strong>
+                        <span>The score is close to the operating threshold. Manual review is recommended.</span>
+                    </div>
+                    {% endif %}
+
+                    <div class="probability-block">
+                        <div class="probability-header">
+                            <span>Defective probability</span>
+                            <strong>{{ '%.2f'|format(result.probability_defective * 100) }}%</strong>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill defect" style="width: {{ result.probability_defective * 100 }}%"></div>
+                        </div>
+                    </div>
+
+                    <div class="probability-block">
+                        <div class="probability-header">
+                            <span>OK probability</span>
+                            <strong>{{ '%.2f'|format(result.probability_ok * 100) }}%</strong>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill success" style="width: {{ result.probability_ok * 100 }}%"></div>
+                        </div>
+                    </div>
+
+                    <div class="result-stats">
+                        <div>
+                            <span>Confidence</span>
+                            <strong>{{ '%.2f'|format(result.confidence * 100) }}%</strong>
+                        </div>
+                        <div>
+                            <span>Threshold</span>
+                            <strong>{{ '%.3f'|format(result.threshold) }}</strong>
+                        </div>
+                        <div>
+                            <span>Uploaded size</span>
+                            <strong>{{ result.image_width }} × {{ result.image_height }}</strong>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="empty-state">
+                        <div class="inspection-illustration" aria-hidden="true">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <h3>Ready for inspection</h3>
+                        <p>Upload one impeller image to view the decision, confidence, and class probabilities.</p>
+                    </div>
+                    {% endif %}
+                </article>
+            </div>
+        </section>
+
+        {% if preview_data_uri or (result and result.gradcam_data_uri) %}
+        <section class="visual-section">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">VISUAL REVIEW</span>
+                    <h2>Inspection evidence</h2>
+                </div>
+                <div class="visual-grid">
+                    {% if preview_data_uri %}
+                    <figure class="image-card">
+                        <img src="{{ preview_data_uri }}" alt="Uploaded impeller casting">
+                        <figcaption>Uploaded casting image</figcaption>
+                    </figure>
+                    {% endif %}
+
+                    {% if result and result.gradcam_data_uri %}
+                    <figure class="image-card">
+                        <img src="{{ result.gradcam_data_uri }}" alt="Grad-CAM model explanation">
+                        <figcaption>Grad-CAM model attention</figcaption>
+                    </figure>
+                    {% endif %}
+                </div>
+                {% if result and result.gradcam_message %}
+                <p class="gradcam-note">{{ result.gradcam_message }}</p>
+                {% endif %}
+            </div>
+        </section>
+        {% endif %}
+
+        <section class="method-section">
+            <div class="container method-grid">
+                <div>
+                    <span class="eyebrow">HOW IT WORKS</span>
+                    <h2>From image to quality decision</h2>
+                </div>
+                <ol class="method-list">
+                    <li><span>01</span><div><strong>Validate image</strong><p>The server verifies the file and reads it without permanently saving it.</p></div></li>
+                    <li><span>02</span><div><strong>Prepare input</strong><p>The image is converted to RGB and resized to the model’s configured dimensions.</p></div></li>
+                    <li><span>03</span><div><strong>Run inference</strong><p>The classifier returns the probability that the casting is defective.</p></div></li>
+                    <li><span>04</span><div><strong>Apply threshold</strong><p>The validation-selected threshold converts the probability into the final decision.</p></div></li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="disclaimer-section">
+            <div class="container disclaimer-card">
+                <strong>Research prototype limitation</strong>
+                <p>
+                    This system performs binary classification only. It does not identify a specific
+                    defect type or guarantee production conformity. Real factory use requires external
+                    validation, monitoring, and a documented human-review process.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-wrap">
+            <span>Casting Defect Inspector</span>
+            <span>Flask + TensorFlow</span>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

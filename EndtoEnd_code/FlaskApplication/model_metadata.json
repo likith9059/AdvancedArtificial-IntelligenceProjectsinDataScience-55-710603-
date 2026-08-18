@@ -1,0 +1,82 @@
+{
+  "project_title": "Automated Casting Defect Detection",
+  "model_name": "Xception_fine_tuned",
+  "image_size": [
+    224,
+    224
+  ],
+  "decision_threshold": 0.365,
+  "probability_semantics": "probability_defective",
+  "class_mapping": {
+    "0": "ok_front",
+    "1": "def_front"
+  },
+  "dataset_source": "unaugmented_512",
+  "clean_split_counts": {
+    "def_front": {
+      "test": 106,
+      "train": 565,
+      "validation": 110
+    },
+    "ok_front": {
+      "test": 106,
+      "train": 357,
+      "validation": 56
+    }
+  },
+  "duplicate_audit": {
+    "original_readable_images": 1300,
+    "exact_duplicate_entries": 0,
+    "exact_duplicate_groups": 0,
+    "unique_images_after_exact_deduplication": 1300,
+    "perceptual_hash_distance": 4,
+    "visual_groups": 824
+  },
+  "validation_selection": [
+    {
+      "threshold": 0.365,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "defect_precision": 1.0,
+      "defect_recall": 1.0,
+      "specificity_ok": 1.0,
+      "f1_defect": 1.0,
+      "f2_defect": 1.0,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0,
+      "false_negative_rate": 0.0,
+      "false_acceptance_rate": 0.0,
+      "model": "Xception_fine_tuned"
+    },
+    {
+      "threshold": 0.31,
+      "accuracy": 0.9879518072289156,
+      "balanced_accuracy": 0.9821428571428572,
+      "defect_precision": 0.9821428571428571,
+      "defect_recall": 1.0,
+      "specificity_ok": 0.9642857142857143,
+      "f1_defect": 0.9909909909909909,
+      "f2_defect": 0.9963768115942028,
+      "roc_auc": 0.9996753246753247,
+      "pr_auc": 0.9998376623376624,
+      "false_negative_rate": 0.0,
+      "false_acceptance_rate": 0.0,
+      "model": "Xception_frozen"
+    }
+  ],
+  "test_metrics": {
+    "threshold": 0.365,
+    "accuracy": 0.9764150943396226,
+    "balanced_accuracy": 0.9764150943396226,
+    "defect_precision": 0.963302752293578,
+    "defect_recall": 0.9905660377358491,
+    "specificity_ok": 0.9622641509433962,
+    "f1_defect": 0.9767441860465116,
+    "f2_defect": 0.9849906191369606,
+    "roc_auc": 0.9988430046279815,
+    "pr_auc": 0.9988894815152376,
+    "false_negative_rate": 0.009433962264150943,
+    "false_acceptance_rate": 0.009433962264150943
+  },
+  "created_at_utc": "2026-07-11T18:23:45.169008+00:00"
+}

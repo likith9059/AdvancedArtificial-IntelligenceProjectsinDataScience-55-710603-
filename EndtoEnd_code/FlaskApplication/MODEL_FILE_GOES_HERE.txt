@@ -1,0 +1,8 @@
+Copy the trained file named exactly:
+
+casting_defect_model.keras
+
+into this project root.
+
+Also replace model_metadata.json with the matching file exported by the corrected training notebook.
+Do not rename the model unless you also update MODEL_PATH in the environment variables.

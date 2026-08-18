@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: casting-defect-inspector
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --config gunicorn.conf.py wsgi:app
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: ENABLE_GRADCAM
+        value: "false"
+      - key: MAX_UPLOAD_MB
+        value: "8"
+      - key: SECRET_KEY
+        generateValue: true
